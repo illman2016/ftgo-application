@@ -11,8 +11,8 @@ import org.springframework.context.annotation.Import;
 @Configuration
 @Import({TramCommandProducerConfiguration.class, CommonConfiguration.class})
 public class AccountServiceConfiguration {
-
-
+  
+ // NO INSTANCE FOR EventuateAggregateStore
   @Bean
   public AggregateRepository<Account, AccountCommand> accountRepositorySync(EventuateAggregateStore aggregateStore) {
     return new AggregateRepository<>(Account.class, aggregateStore);
